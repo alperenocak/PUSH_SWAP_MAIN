@@ -6,7 +6,7 @@
 /*   By: yuocak <yuocak@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 17:48:42 by yuocak            #+#    #+#             */
-/*   Updated: 2025/03/20 17:51:32 by yuocak           ###   ########.fr       */
+/*   Updated: 2025/03/22 01:14:13 by yuocak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,7 @@ int ft_stack_size(t_list *stack)
     t_list  *current;
     
     current = stack;
-    if (stack == NULL)
-        return (0);
-    
-    while (stack != current -> next)
+    while (stack != current->next)
     {
         stack_size++;
         current = current -> next;
@@ -30,12 +27,12 @@ int ft_stack_size(t_list *stack)
     return (stack_size);
 }
 
-void    ft_sort(t_list **stack_a, t_list **stack_b)
+void    ft_sort(t_list **stack_a, t_list **stack_b, char **tmp, int split_control)
 {
     int size;
 
-    size = ft_stack_size(*stack_a);
-    if (!ft_is_sorted(stack_a))
+    size = lst_len(*stack_a);
+    if (*stack_a)
     {
         if (size == 2)
             sa(stack_a);
@@ -43,6 +40,7 @@ void    ft_sort(t_list **stack_a, t_list **stack_b)
             sort_three_args(stack_a);
         else if (size > 3)
             to_many_args(stack_a, stack_b);
+        printf("çıkıın mı\n");
     }
-    free_stack(stack_a, stack_b);
+    ft_free(*stack_a, tmp, split_control);
 }

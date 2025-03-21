@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move_stack_b.c                                     :+:      :+:    :+:   */
+/*   rotate_actions.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yuocak <yuocak@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/20 17:55:02 by yuocak            #+#    #+#             */
-/*   Updated: 2025/03/22 00:54:38 by yuocak           ###   ########.fr       */
+/*   Created: 2025/03/21 15:37:44 by yuocak            #+#    #+#             */
+/*   Updated: 2025/03/21 17:09:01 by yuocak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    move_b_to_a(t_list **stack_a, t_list **stack_b)
+
+void    ra(t_list **stack)
 {
-    ready_for_push(stack_a, (*stack_b)->target_node, 'a');
-    printf("here\n");
-    pa(stack_a, stack_b);
+    *stack = (*stack)->next;
+    write(1, "ra\n", 3);
+}
+void    rb(t_list **stack)
+{
+    *stack = (*stack)->next;
+    write(1, "ra\n", 3);
+}
+
+void    rr(t_list **stack_a, t_list **stack_b)
+{
+    ra(stack_a);
+    rb(stack_b);
+    write(1, "rr\n", 3);
 }

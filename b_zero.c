@@ -1,20 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move_stack_b.c                                     :+:      :+:    :+:   */
+/*   b_zero.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yuocak <yuocak@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/20 17:55:02 by yuocak            #+#    #+#             */
-/*   Updated: 2025/03/22 00:54:38 by yuocak           ###   ########.fr       */
+/*   Created: 2025/03/22 00:55:23 by yuocak            #+#    #+#             */
+/*   Updated: 2025/03/22 01:00:07 by yuocak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    move_b_to_a(t_list **stack_a, t_list **stack_b)
+void    make_zero(t_list *stack)
 {
-    ready_for_push(stack_a, (*stack_b)->target_node, 'a');
-    printf("here\n");
-    pa(stack_a, stack_b);
+    t_list  *head;
+
+    head = stack;
+    while (stack)
+    {   
+        stack->cheap = 0;
+        stack->cost = 0;
+        stack->index = 0;
+        stack->median = 0;
+        stack->target_node = NULL;
+        stack = stack->next;
+        if (stack == head)
+            break ;
+    }
 }

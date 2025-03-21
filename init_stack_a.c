@@ -6,7 +6,7 @@
 /*   By: yuocak <yuocak@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 17:49:31 by yuocak            #+#    #+#             */
-/*   Updated: 2025/03/20 18:16:14 by yuocak           ###   ########.fr       */
+/*   Updated: 2025/03/21 23:25:06 by yuocak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,9 +94,9 @@ void    current_index(t_list *stack)
     
     head = stack;
     i = 0;
-    if (!stack)
+    if (stack->next == NULL)
         return ;
-    median = ft_stack_size(stack) / 2;
+    median = lst_len(stack) / 2;
     while(stack)
     {
         stack -> index = i;
@@ -119,7 +119,7 @@ void    initialize_stack_a(t_list *stack_a, t_list *stack_b)
     j = 0;
     current_index(stack_a);
     current_index(stack_b);
-    set_target_stack_a(stack_a, stack_b, i);
+    set_target_stack_a(stack_a, stack_b, i, j);
     cost_calculation(stack_a, stack_b);
     find_cheapest(stack_a);
 }

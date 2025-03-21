@@ -6,7 +6,7 @@
 /*   By: yuocak <yuocak@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 17:41:51 by yuocak            #+#    #+#             */
-/*   Updated: 2025/03/20 17:43:53 by yuocak           ###   ########.fr       */
+/*   Updated: 2025/03/21 21:42:52 by yuocak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,6 @@ int	ft_is_sorted(t_list *head)
 
 	tmp_head = head;
 	i = 0;
-	if (head->next == NULL)
-		return (1);
 	while (tmp_head != head->next)
 	{
 		if (head->value < head->next->value)
