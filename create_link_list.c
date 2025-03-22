@@ -6,7 +6,7 @@
 /*   By: yuocak <yuocak@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 17:38:35 by yuocak            #+#    #+#             */
-/*   Updated: 2025/03/22 01:00:47 by yuocak           ###   ########.fr       */
+/*   Updated: 2025/03/22 04:01:06 by yuocak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,9 @@ t_list  *ft_create_list(char **tmp, int split_control)
         i++;
     }
     node->next = head;
-    if(!(ft_is_same(head)))
+    if(!ft_is_same(head))
         ft_free_and_error(head, tmp, split_control);
-    if(!(ft_is_sorted(head)))
+    if(ft_is_sorted(head))
         return (ft_free(head, tmp, split_control), exit(1), NULL);
     make_zero(head);
     return(head);

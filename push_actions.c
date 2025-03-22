@@ -6,7 +6,7 @@
 /*   By: yuocak <yuocak@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 15:07:45 by yuocak            #+#    #+#             */
-/*   Updated: 2025/03/22 01:23:11 by yuocak           ###   ########.fr       */
+/*   Updated: 2025/03/22 03:22:25 by yuocak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,12 @@
 
 void    push_a(t_list **stack_a, t_list **stack_b, t_list *temp)
 {
-    if((*stack_b)->next == NULL);
+    if((*stack_b)->next == NULL)
     {
         ft_last_node_two(*stack_a)->next = *stack_b;
         (*stack_b)->next = *stack_a;
         *stack_a = *stack_b;
         *stack_b = NULL;
-        printf("ilk if\n");
         return ;
     }
     if (lst_len(*stack_b) == 2)
@@ -31,7 +30,6 @@ void    push_a(t_list **stack_a, t_list **stack_b, t_list *temp)
         ft_last_node_two(*stack_a)->next = temp;
         temp->next = *stack_a;
         *stack_a = temp;
-        printf("ikinci if\n");
         return ;
     }
     temp = *stack_b;
@@ -52,7 +50,6 @@ void   push_b(t_list **stack_a, t_list **stack_b)
         *stack_b = *stack_a;
         *stack_a = (*stack_a)->next;
         temp->next = *stack_a;
-        printf("ilk if\n");
         (*stack_b)->next = NULL;
         return ;
     }
@@ -64,7 +61,6 @@ void   push_b(t_list **stack_a, t_list **stack_b)
         (*stack_b)->next = temp;
         temp->next = *stack_b;
         *stack_b = temp;
-        printf("ikinci if\n");
         return ;
     }
     ft_last_node_two(*stack_b)->next = temp;

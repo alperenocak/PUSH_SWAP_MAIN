@@ -6,7 +6,7 @@
 /*   By: yuocak <yuocak@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 17:41:51 by yuocak            #+#    #+#             */
-/*   Updated: 2025/03/21 21:42:52 by yuocak           ###   ########.fr       */
+/*   Updated: 2025/03/22 03:51:21 by yuocak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,19 +54,23 @@ int	ft_is_same(t_list *head)
 	return (ft_is_same(head->next));
 }
 
-int	ft_is_sorted(t_list *head)
+int ft_is_sorted(t_list *head)
 {
-	int		i;
-	t_list	*tmp_head;
-
-	tmp_head = head;
-	i = 0;
-	while (tmp_head != head->next)
-	{
-		if (head->value < head->next->value)
-			head = head->next;
-		else
-			return (1);
-	}
-	return (0);
+    if (head == NULL || head->next == head)
+        return (1);
+    
+    t_list *current = head;
+    t_list *first = head;
+    
+    while (1)
+    {
+        if (current->value > current->next->value)
+            return (0);
+        current = current->next;
+        if (current->next == first)
+            break;
+    }
+    if (current->value > first->value)
+        return (0);
+    return (1);
 }

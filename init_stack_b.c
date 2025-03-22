@@ -6,7 +6,7 @@
 /*   By: yuocak <yuocak@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 17:50:25 by yuocak            #+#    #+#             */
-/*   Updated: 2025/03/22 01:06:19 by yuocak           ###   ########.fr       */
+/*   Updated: 2025/03/22 03:23:11 by yuocak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,7 @@ void    initialize_stack_b(t_list *stack_a, t_list *stack_b)
     current_index(stack_a);
     current_index(stack_b);
     if (stack_b->next == NULL)
-    {
-        printf("hereeeee\n");
         set_target_stack_b(stack_a, stack_b, 1, lst_len(stack_a));
-    }
     else
         set_target_stack_b(stack_a, stack_b->next, lst_len(stack_b), lst_len(stack_a));
 }

@@ -6,7 +6,7 @@
 /*   By: yuocak <yuocak@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 17:49:31 by yuocak            #+#    #+#             */
-/*   Updated: 2025/03/21 23:25:06 by yuocak           ###   ########.fr       */
+/*   Updated: 2025/03/22 04:01:01 by yuocak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,17 @@ void    set_target_stack_a(t_list *stack_a, t_list *stack_b, int i, int j)
     t_list  *target_node;
     int     best_match_index;
     
-    while(i++ < ft_stack_size(stack_a))
+    while(i-- != 0)
     {
-        j = 0;
+        j = lst_len(stack_b);
         best_match_index = INT_MIN;
-        while (j++ < ft_stack_size(stack_b))
+        current_b = stack_b;
+        while (j-- != 0)
         {
             if (current_b->value < stack_a->value 
                 && current_b->value > best_match_index)
-                {
-                    best_match_index = current_b->value;
+            {
+                best_match_index = current_b->value;
 				target_node = current_b;
             }
             current_b = current_b->next;
@@ -113,13 +114,9 @@ void    current_index(t_list *stack)
 
 void    initialize_stack_a(t_list *stack_a, t_list *stack_b)
 {
-    int i;
-    int j;
-    i = 0;
-    j = 0;
     current_index(stack_a);
     current_index(stack_b);
-    set_target_stack_a(stack_a, stack_b, i, j);
+    set_target_stack_a(stack_a, stack_b, lst_len(stack_a), lst_len(stack_b));
     cost_calculation(stack_a, stack_b);
     find_cheapest(stack_a);
 }

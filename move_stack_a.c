@@ -6,7 +6,7 @@
 /*   By: yuocak <yuocak@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 17:54:36 by yuocak            #+#    #+#             */
-/*   Updated: 2025/03/21 16:54:43 by yuocak           ###   ########.fr       */
+/*   Updated: 2025/03/22 04:01:39 by yuocak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ t_list  *get_cheapest(t_list *stack)
 void    move_a_to_b(t_list **stack_a, t_list **stack_b)
 {
     t_list  *cheapest_node;
-
     cheapest_node = get_cheapest(*stack_a);
     if (cheapest_node->median 
         && cheapest_node->target_node->median)
