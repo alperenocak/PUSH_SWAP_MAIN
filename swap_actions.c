@@ -6,7 +6,7 @@
 /*   By: yuocak <yuocak@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 15:48:50 by yuocak            #+#    #+#             */
-/*   Updated: 2025/03/21 21:53:38 by yuocak           ###   ########.fr       */
+/*   Updated: 2025/03/22 23:57:58 by yuocak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,7 @@ void    swap(t_list **stack)
     t_list  *temp;
     t_list  *last_node;
 
-    if ((*stack) == NULL || (*stack)->next == NULL)
-        return ;
+    
     last_node = ft_last_node_two(*stack);
     temp = *stack;
     if (ft_stack_size(*stack) == 2)

@@ -6,7 +6,7 @@
 /*   By: yuocak <yuocak@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 17:35:20 by yuocak            #+#    #+#             */
-/*   Updated: 2025/03/22 00:58:12 by yuocak           ###   ########.fr       */
+/*   Updated: 2025/03/23 02:48:55 by yuocak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,13 +70,13 @@ void    make_zero(t_list *stack);
 void    pa(t_list **stack_a, t_list **stack_b);
 void    pb(t_list **stack_a, t_list **stack_b);
 
-void    rra(t_list **stack);
-void    rrb(t_list **stack);
-void    rrr(t_list **stack_a, t_list **stack_b);
+void    rra(t_list **stack, int write_flag);
+void    rrb(t_list **stack, int write_flag);
+void    rrr(t_list **stack_a, t_list **stack_b, int write_flag);
 
-void    ra(t_list **stack);
-void    rb(t_list **stack);
-void    rr(t_list **stack_a, t_list **stack_b);
+void    ra(t_list **stack, int write_flag);
+void    rb(t_list **stack, int write_flag);
+void    rr(t_list **stack_a, t_list **stack_b, int write_flag);
 
 void    sa(t_list **stack);
 # endif

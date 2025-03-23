@@ -6,7 +6,7 @@
 /*   By: yuocak <yuocak@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 17:48:42 by yuocak            #+#    #+#             */
-/*   Updated: 2025/03/22 03:25:36 by yuocak           ###   ########.fr       */
+/*   Updated: 2025/03/23 01:17:29 by yuocak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,8 @@ void    ft_sort(t_list **stack_a, t_list **stack_b, char **tmp, int split_contro
             sa(stack_a);
         else if (size == 3)
             sort_three_args(stack_a);
-        else if (size > 3)
+        else
             to_many_args(stack_a, stack_b);
     }
-    
     ft_free(*stack_a, tmp, split_control);
 }

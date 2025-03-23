@@ -6,7 +6,7 @@
 /*   By: yuocak <yuocak@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 17:38:35 by yuocak            #+#    #+#             */
-/*   Updated: 2025/03/22 04:01:06 by yuocak           ###   ########.fr       */
+/*   Updated: 2025/03/23 03:36:17 by yuocak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_list  *ft_new_node(long number)
 {
     t_list  *new_node;
 
-    if (number <= -2147483648 && number >= 2147483647)
+    if (number < -2147483648 && number > 2147483647)
         return (NULL);
     new_node = malloc(sizeof(t_list));
     if (!new_node)

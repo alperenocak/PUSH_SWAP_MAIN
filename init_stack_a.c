@@ -6,7 +6,7 @@
 /*   By: yuocak <yuocak@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 17:49:31 by yuocak            #+#    #+#             */
-/*   Updated: 2025/03/22 04:01:01 by yuocak           ###   ########.fr       */
+/*   Updated: 2025/03/23 01:28:16 by yuocak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@ void    find_cheapest(t_list *stack)
     t_list  *cheap_node;
     t_list  *head;
 
-    head = stack;
     if (!stack)
         return ;
+    cheap = INT_MAX;
+    cheap_node = NULL;
+    head = stack;
     while (stack)
     {
         if (stack->cost < cheap)
@@ -35,18 +37,18 @@ void    find_cheapest(t_list *stack)
     cheap_node->cheap = 1;
 }
 
-void    set_target_stack_a(t_list *stack_a, t_list *stack_b, int i, int j)
+void    set_target_stack_a(t_list *stack_a, t_list *stack_b, int a, int b)
 {
     t_list  *current_b;
     t_list  *target_node;
     int     best_match_index;
     
-    while(i-- != 0)
+    while(a-- != 0)
     {
-        j = lst_len(stack_b);
+        b = lst_len(stack_b);
         best_match_index = INT_MIN;
         current_b = stack_b;
-        while (j-- != 0)
+        while (b-- != 0)
         {
             if (current_b->value < stack_a->value 
                 && current_b->value > best_match_index)
@@ -71,13 +73,13 @@ void    cost_calculation(t_list *stack_a, t_list *stack_b)
     t_list  *head;
 
     head = stack_a;
-    len_stack_a = ft_stack_size(stack_a);
-    len_stack_b = ft_stack_size(stack_b);
+    len_stack_a = lst_len(stack_a);
+    len_stack_b = lst_len(stack_b);
     while (stack_a)
     {
         stack_a->cost = stack_a->index;
         if (!(stack_a->median))
-            stack_a->cost =len_stack_a - (stack_a->index);
+            stack_a->cost = len_stack_a - (stack_a->index);
         if (stack_a->target_node->median)
             stack_a->cost += stack_a->target_node->index;
         else
@@ -100,8 +102,8 @@ void    current_index(t_list *stack)
     median = lst_len(stack) / 2;
     while(stack)
     {
-        stack -> index = i;
-        if (i <= median)
+        stack->index = i;
+        if (stack->index <= median)
             stack->median = 1;
         else
             stack->median = 0;

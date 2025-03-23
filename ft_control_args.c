@@ -6,7 +6,7 @@
 /*   By: yuocak <yuocak@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 17:35:49 by yuocak            #+#    #+#             */
-/*   Updated: 2025/03/22 03:33:22 by yuocak           ###   ########.fr       */
+/*   Updated: 2025/03/22 23:26:07 by yuocak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static int ft_control_args(char *av)
 	return (1);
 }
 
-void ft_control(char **av)
+void 	ft_control(char **av)
 {
     int i;
 

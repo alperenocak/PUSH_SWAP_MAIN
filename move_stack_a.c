@@ -6,7 +6,7 @@
 /*   By: yuocak <yuocak@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 17:54:36 by yuocak            #+#    #+#             */
-/*   Updated: 2025/03/22 04:01:39 by yuocak           ###   ########.fr       */
+/*   Updated: 2025/03/23 02:48:08 by yuocak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,16 @@
 
 void    rotate_both(t_list **stack_a, t_list **stack_b, t_list *cheapest_node)
 {
-    while (*stack_b != cheapest_node->target_node 
-        && *stack_a != cheapest_node)
-        rr(stack_a, stack_b);
+    while (*stack_b != cheapest_node->target_node && *stack_a != cheapest_node)
+        rr(stack_a, stack_b, 0);
     current_index(*stack_a);
     current_index(*stack_b);
 }    
 
 void    rev_rotate_both(t_list **stack_a, t_list **stack_b, t_list *cheapest_node)
 {
-    while (*stack_b != cheapest_node->target_node 
-        && *stack_a != cheapest_node)
-        rrr(stack_a, stack_b);
+    while (*stack_b != cheapest_node->target_node && *stack_a != cheapest_node)
+        rrr(stack_a, stack_b, 0);
     current_index(*stack_a);
     current_index(*stack_b);
 }
@@ -37,16 +35,16 @@ void    ready_for_push(t_list **stack, t_list *top_node, char stack_name)
         if (stack_name == 'a')
         {
             if(top_node->median)
-                ra(stack);
+                ra(stack, 0);
             else
-                rra(stack);
+                rra(stack, 0);
         }
         else if (stack_name == 'b')
         {
             if(top_node->median)
-                rb(stack);
+                rb(stack, 0);
             else
-                rrb(stack);
+                rrb(stack, 0);
         }   
     }
 }
@@ -63,14 +61,13 @@ t_list  *get_cheapest(t_list *stack)
         if(stack->cheap)
             return (stack);
         stack = stack->next;
-        if(stack == head)
-            break;
     }
     return (NULL);
 }
 void    move_a_to_b(t_list **stack_a, t_list **stack_b)
 {
     t_list  *cheapest_node;
+    
     cheapest_node = get_cheapest(*stack_a);
     if (cheapest_node->median 
         && cheapest_node->target_node->median)
