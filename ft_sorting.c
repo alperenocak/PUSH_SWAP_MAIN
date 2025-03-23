@@ -12,34 +12,35 @@
 
 #include "push_swap.h"
 
-int ft_stack_size(t_list *stack)
+int	ft_stack_size(t_list *stack)
 {
-    int     stack_size;
-    t_list  *current;
-    
-    current = stack;
-    while (stack != current->next)
-    {
-        stack_size++;
-        current = current -> next;
-    }
-    stack_size += 1;
-    return (stack_size);
+	int		stack_size;
+	t_list	*current;
+
+	current = stack;
+	while (stack != current->next)
+	{
+		stack_size++;
+		current = current->next;
+	}
+	stack_size += 1;
+	return (stack_size);
 }
 
-void    ft_sort(t_list **stack_a, t_list **stack_b, char **tmp, int split_control)
+void	ft_sort(t_list **stack_a, t_list **stack_b, char **tmp,
+		int split_control)
 {
-    int size;
+	int	size;
 
-    size = lst_len(*stack_a);
-    if (*stack_a)
-    {
-        if (size == 2)
-            sa(stack_a);
-        else if (size == 3)
-            sort_three_args(stack_a);
-        else
-            to_many_args(stack_a, stack_b);
-    }
-    ft_free(*stack_a, tmp, split_control);
+	size = lst_len(*stack_a);
+	if (*stack_a)
+	{
+		if (size == 2)
+			sa(stack_a);
+		else if (size == 3)
+			sort_three_args(stack_a);
+		else
+			to_many_args(stack_a, stack_b);
+	}
+	ft_free(*stack_a, tmp, split_control);
 }

@@ -6,49 +6,49 @@
 /*   By: yuocak <yuocak@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 15:48:50 by yuocak            #+#    #+#             */
-/*   Updated: 2025/03/22 23:57:58 by yuocak           ###   ########.fr       */
+/*   Updated: 2025/03/23 18:22:41 by yuocak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list  *ft_last_node_two(t_list *head)
+t_list	*ft_last_node_two(t_list *head)
 {
-    t_list  *tmp_head;
+	t_list	*tmp_head;
 
-    tmp_head = head;
-    while (head)
-    {
-        if (head->next == tmp_head)
-            return (head);
-        head = head->next;
-    }
+	tmp_head = head;
+	while (head)
+	{
+		if (head->next == tmp_head)
+			return (head);
+		head = head->next;
+	}
+	return (NULL);
 }
 
-void    swap(t_list **stack)
+void	swap(t_list **stack)
 {
-    t_list  *temp;
-    t_list  *last_node;
+	t_list	*temp;
+	t_list	*last_node;
 
-    
-    last_node = ft_last_node_two(*stack);
-    temp = *stack;
-    if (ft_stack_size(*stack) == 2)
-    {
-        *stack = (*stack)->next;
-        (*stack)->next = temp;
-    }
-    else 
-    {
-        last_node->next = (*stack)->next;
-        *stack = (*stack)->next;
-        temp->next = (*stack)->next;
-        (*stack)->next = temp;
-    }
+	last_node = ft_last_node_two(*stack);
+	temp = *stack;
+	if (ft_stack_size(*stack) == 2)
+	{
+		*stack = (*stack)->next;
+		(*stack)->next = temp;
+	}
+	else
+	{
+		last_node->next = (*stack)->next;
+		*stack = (*stack)->next;
+		temp->next = (*stack)->next;
+		(*stack)->next = temp;
+	}
 }
 
-void    sa(t_list **stack_a)
+void	sa(t_list **stack_a)
 {
-    swap(stack_a);
-    write(1, "sa\n", 3);
+	swap(stack_a);
+	write(1, "sa\n", 3);
 }
