@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuocak <yuocak@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: yuocak <yuocak@student.42kocaeli.com.tr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 17:34:23 by yuocak            #+#    #+#             */
-/*   Updated: 2025/03/23 16:47:18 by yuocak           ###   ########.fr       */
+/*   Updated: 2025/03/23 22:47:52 by yuocak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	main(int ac, char **av)
 	stack_b = NULL;
 	if (ac < 2)
 		return (0);
+	else if (av[1][0] == '\0')
+		ft_error();
 	else if ((ac == 2) && !(av[1][0] == '\0'))
 	{
 		ft_control(av + 1);

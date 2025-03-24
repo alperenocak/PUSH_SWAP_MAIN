@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_link_list.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuocak <yuocak@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: yuocak <yuocak@student.42kocaeli.com.tr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 17:38:35 by yuocak            #+#    #+#             */
-/*   Updated: 2025/03/23 18:55:31 by yuocak           ###   ########.fr       */
+/*   Updated: 2025/03/24 04:15:54 by yuocak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,7 @@ t_list	*ft_create_list(char **tmp, int split_control)
 	node = NULL;
 	head = NULL;
 	i = 0;
-	if (list_size(tmp) == 1)
-		return (ft_free(NULL, tmp, split_control), exit(1), NULL);
+	if_arg_one(tmp, split_control);
 	while (tmp[i] != NULL)
 	{
 		node = ft_new_node(ft_atol(tmp[i]));
@@ -78,7 +77,7 @@ t_list	*ft_create_list(char **tmp, int split_control)
 	node->next = head;
 	if (!ft_is_same(head))
 		ft_free_and_error(head, tmp, split_control);
-	if (ft_is_sorted(head))
+	if (!ft_is_sorted(head))
 		return (ft_free(head, tmp, split_control), exit(1), NULL);
 	make_zero(head);
 	return (head);

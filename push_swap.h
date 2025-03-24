@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuocak <yuocak@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: yuocak <yuocak@student.42kocaeli.com.tr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 17:35:20 by yuocak            #+#    #+#             */
-/*   Updated: 2025/03/23 18:08:37 by yuocak           ###   ########.fr       */
+/*   Updated: 2025/03/24 01:00:31 by yuocak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
-
-# define LONG_MAX 9223372036854775807
-# define LONG_MIN -9223372036854775808L
 
 # include <stdlib.h>
 # include <unistd.h>
@@ -45,7 +42,7 @@ int					ft_stack_size(t_list *stack);
 int					ft_is_same(t_list *head);
 int					ft_is_sorted(t_list *head);
 void				make_zero(t_list *stack);
-
+void				if_arg_one(char **tmp, int split_control);
 
 void				ft_error(void);
 void				ft_free_and_error(t_list *head, char **tmp,
@@ -62,7 +59,6 @@ void				initialize_stack_b(t_list *stack_a, t_list *stack_b);
 void				set_target_stack_b(t_list *stack_a, t_list *stack_b, int i,
 						int j);
 void				current_index(t_list *stack);
-
 
 void				ft_sort(t_list **stack_a, t_list **stack_b, char **tmp,
 						int split_control);

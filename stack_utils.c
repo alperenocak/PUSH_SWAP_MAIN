@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuocak <yuocak@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: yuocak <yuocak@student.42kocaeli.com.tr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 14:23:39 by yuocak            #+#    #+#             */
-/*   Updated: 2025/03/23 17:33:54 by yuocak           ###   ########.fr       */
+/*   Updated: 2025/03/23 23:26:58 by yuocak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,20 @@ t_list	*find_min(t_list *stack)
 			break ;
 	}
 	return (min_node);
+}
+
+void	if_arg_one(char **tmp, int split_control)
+{
+	int	i;
+
+	i = 0;
+	if (list_size(tmp) == 1)
+	{
+		if (ft_atol(tmp[i]) < INT_MIN || ft_atol(tmp[i]) > INT_MAX)
+		{
+			ft_free_and_error(NULL, tmp, split_control);
+		}
+		ft_free(NULL, tmp, split_control);
+		exit(1);
+	}
 }
