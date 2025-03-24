@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   two_or_many_args.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuocak <yuocak@student.42kocaeli.com.tr>   +#+  +:+       +#+        */
+/*   By: yuocak <yuocak@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 17:52:08 by yuocak            #+#    #+#             */
-/*   Updated: 2025/03/24 04:20:48 by yuocak           ###   ########.fr       */
+/*   Updated: 2025/03/24 23:38:12 by yuocak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,13 @@ void	to_many_args(t_list **stack_a, t_list **stack_b)
 	int	len_a;
 
 	len_a = lst_len(*stack_a);
-	if (len_a > 3 && !(ft_is_sorted(*stack_a)))
+	if (len_a > 3 && (ft_is_sorted(*stack_a)))
 		pb(stack_a, stack_b);
 	len_a--;
-	if (len_a > 3 && !(ft_is_sorted(*stack_a)))
+	if (len_a > 3 && (ft_is_sorted(*stack_a)))
 		pb(stack_a, stack_b);
 	len_a--;
-	while (lst_len(*stack_a) > 3 && !ft_is_sorted(*stack_a))
+	while (lst_len(*stack_a) > 3 && (ft_is_sorted(*stack_a)))
 	{
 		initialize_stack_a(*stack_a, *stack_b);
 		move_a_to_b(stack_a, stack_b);

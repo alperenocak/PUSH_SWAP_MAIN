@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuocak <yuocak@student.42kocaeli.com.tr>   +#+  +:+       +#+        */
+/*   By: yuocak <yuocak@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 14:23:39 by yuocak            #+#    #+#             */
-/*   Updated: 2025/03/23 23:26:58 by yuocak           ###   ########.fr       */
+/*   Updated: 2025/03/24 18:57:45 by yuocak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,6 @@ void	if_arg_one(char **tmp, int split_control)
 			ft_free_and_error(NULL, tmp, split_control);
 		}
 		ft_free(NULL, tmp, split_control);
-		exit(1);
+		exit(0);
 	}
 }

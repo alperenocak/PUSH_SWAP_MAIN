@@ -3,14 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   ft_control_args.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuocak <yuocak@student.42kocaeli.com.tr>   +#+  +:+       +#+        */
+/*   By: yuocak <yuocak@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 17:35:49 by yuocak            #+#    #+#             */
-/*   Updated: 2025/03/23 23:33:12 by yuocak           ###   ########.fr       */
+/*   Updated: 2025/03/25 00:12:42 by yuocak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	two_more_args(char *str)
+{
+	while (*str)
+	{
+		if (*str == ' ')
+		{
+			write(2, "Error\n", 6);
+			exit(0);
+		}
+		str++;
+	}
+}
 
 int	digit_count_control(char *av)
 {
@@ -67,17 +80,24 @@ int	ft_control_args(char *av)
 	return (1);
 }
 
-void	ft_control(char **av)
+void	ft_control(char **av, int k)
 {
 	int	i;
 
 	i = 0;
 	while (av[i])
 	{
+		if (k == 0)
+			two_more_args(av[i]);
+		i++;
+	}
+	i = 0;
+	while (av[i])
+	{
 		if (!ft_control_args(av[i]))
 		{
 			write(2, "Error\n", 6);
-			exit(1);
+			exit(0);
 		}
 		i++;
 	}

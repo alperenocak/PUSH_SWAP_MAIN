@@ -6,7 +6,7 @@
 /*   By: yuocak <yuocak@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 17:46:48 by yuocak            #+#    #+#             */
-/*   Updated: 2025/03/23 18:51:51 by yuocak           ###   ########.fr       */
+/*   Updated: 2025/03/25 00:11:03 by yuocak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,17 @@ void	ft_free(t_list *head, char **tmp, int split_control)
 void	ft_error(void)
 {
 	write(2, "Error\n", 6);
-	exit(1);
+	exit(0);
 }
 
 void	ft_free_and_error(t_list *head, char **tmp, int split_control)
 {
 	ft_free(head, tmp, split_control);
 	ft_error();
+}
+
+void	ft_exit_sorted(t_list *head, char **tmp, int split_control)
+{
+	ft_free(head, tmp, split_control);
+	exit(0);
 }

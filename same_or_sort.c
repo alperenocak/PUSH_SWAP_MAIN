@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   same_or_sort.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuocak <yuocak@student.42kocaeli.com.tr>   +#+  +:+       +#+        */
+/*   By: yuocak <yuocak@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 17:41:51 by yuocak            #+#    #+#             */
-/*   Updated: 2025/03/24 04:18:32 by yuocak           ###   ########.fr       */
+/*   Updated: 2025/03/24 23:49:44 by yuocak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,20 +55,20 @@ int	ft_is_same(t_list *head)
 	return (ft_is_same_helper(head, head->next, size - 1));
 }
 
-int	ft_is_sorted(t_list *head) //sıralı ise 0 döndğr
+int	ft_is_sorted(t_list *head)
 {
-	t_list	*current;
-	t_list	*first;
+	t_list	*temp;
 
-	current = head;
-	first = head;
-	while (first)
+	temp = head;
+	while (head)
 	{
-		if (current->value > current->next->value)
-			return (0);
-		current = current->next;
-		if (current == first)
+		if (head->value > head->next->value)
+			return (1);
+		head = head->next;
+		if (head->next == temp)
 			break ;
 	}
-	return (1);
+	if (head->value < head->next->value)
+		return (1);
+	return (0);
 }

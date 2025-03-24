@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_link_list.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuocak <yuocak@student.42kocaeli.com.tr>   +#+  +:+       +#+        */
+/*   By: yuocak <yuocak@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 17:38:35 by yuocak            #+#    #+#             */
-/*   Updated: 2025/03/24 04:15:54 by yuocak           ###   ########.fr       */
+/*   Updated: 2025/03/24 23:30:49 by yuocak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ t_list	*ft_create_list(char **tmp, int split_control)
 	if (!ft_is_same(head))
 		ft_free_and_error(head, tmp, split_control);
 	if (!ft_is_sorted(head))
-		return (ft_free(head, tmp, split_control), exit(1), NULL);
+		ft_exit_sorted(head, tmp, split_control);
 	make_zero(head);
 	return (head);
 }

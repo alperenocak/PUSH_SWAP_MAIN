@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuocak <yuocak@student.42kocaeli.com.tr>   +#+  +:+       +#+        */
+/*   By: yuocak <yuocak@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 17:34:23 by yuocak            #+#    #+#             */
-/*   Updated: 2025/03/23 22:47:52 by yuocak           ###   ########.fr       */
+/*   Updated: 2025/03/25 00:13:45 by yuocak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ int	main(int ac, char **av)
 		ft_error();
 	else if ((ac == 2) && !(av[1][0] == '\0'))
 	{
-		ft_control(av + 1);
+		ft_control(av + 1, 1);
 		av = ft_split(av[1], ' ');
 		stack_a = ft_create_list(av, 1);
 		ft_sort(&stack_a, &stack_b, av, 1);
 	}
 	else if (ac > 2)
 	{
-		ft_control(av + 1);
+		ft_control(av + 1, 0);
 		stack_a = ft_create_list(av + 1, 0);
 		ft_sort(&stack_a, &stack_b, av + 1, 0);
 	}
