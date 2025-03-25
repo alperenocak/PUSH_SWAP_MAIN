@@ -3,54 +3,45 @@
 /*                                                        :::      ::::::::   */
 /*   ft_control_args.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuocak <yuocak@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: yuocak <yuocak@student.42kocaeli.com.tr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 17:35:49 by yuocak            #+#    #+#             */
-/*   Updated: 2025/03/25 00:12:42 by yuocak           ###   ########.fr       */
+/*   Updated: 2025/03/25 15:37:50 by yuocak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	two_more_args(char *str)
+static int	ft_isspace(char c)
 {
-	while (*str)
-	{
-		if (*str == ' ')
-		{
-			write(2, "Error\n", 6);
-			exit(0);
-		}
-		str++;
-	}
+	return (c == ' ');
 }
 
-int	digit_count_control(char *av)
+static int	ft_is_valid_sign(char *str, int *i)
+{
+	if (str[*i] == '-')
+	{
+		if (str[*i + 1] == '0'
+			&& (str[*i + 2] == ' ' || str[*i + 2] == '\0'))
+			return (0);
+		(*i)++;
+	}
+	else if (str[*i] == '+')
+		(*i)++;
+	return (1);
+}
+
+static int	ft_check_digits(char *str, int *i)
 {
 	int	digit_count;
-	int	i;
 
-	i = 0;
-	while (av[i])
+	digit_count = 0;
+	while (str[*i] >= '0' && str[*i] <= '9')
 	{
-		digit_count = 0;
-		if (av[i] == '-' || av[i] == '+')
-		{
-			if (av[i] == '-' && av[i + 1] == '0' && (av[i + 2] == ' '
-					|| av[i + 2] == '\0'))
-				return (0);
-			i++;
-		}
-		while (av[i] >= '0' && av[i] <= '9')
-		{
-			digit_count++;
-			i++;
-		}
-		if (digit_count > 10)
-			return (0);
-		i++;
+		digit_count++;
+		(*i)++;
 	}
-	return (1);
+	return (digit_count <= 10);
 }
 
 int	ft_control_args(char *av)
@@ -58,23 +49,20 @@ int	ft_control_args(char *av)
 	int	i;
 
 	i = 0;
-	if ((av[0] > '9' || av[0] < '0') && (av[0] != '+' && av[0] != '-'))
-		return (0);
-	if (!digit_count_control(av))
+	while (ft_isspace(av[i]))
+		i++;
+	if (av[i] == '\0' || ((av[i] > '9' || av[i] < '0')
+			&& (av[i] != '+' && av[i] != '-')))
 		return (0);
 	while (av[i])
 	{
-		if ((av[i] >= '0' && av[i] <= '9') && !(av[i + 1] == '-'
-				|| av[i + 1] == '+'))
+		while (ft_isspace(av[i]))
 			i++;
-		else if ((av[i] == '-' || av[i] == '+') && !(av[i + 1] == '-' || av[i
-					+ 1] == '+') && (av[i + 1] >= '0' && av[i + 1] <= '9'))
-			i++;
-		else if (av[i] == ' ' && (av[i + 1] <= '9' && av[i + 1] >= '0'))
-			i++;
-		else if (av[i] == ' ' && (av[i + 1] == '+' || av[i + 1] == '-'))
-			i++;
-		else
+		if (!ft_is_valid_sign(av, &i))
+			return (0);
+		if (!ft_check_digits(av, &i))
+			return (0);
+		if (av[i] != ' ' && av[i] != '\0')
 			return (0);
 	}
 	return (1);

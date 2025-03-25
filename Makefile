@@ -22,6 +22,7 @@ SRC_FILES =push_swap.c \
 			same_or_sort.c \
 			stack_utils.c \
 			two_or_many_args.c \
+			ft_control_args_utils.c \
 
 OBJ_FILES = $(addprefix $(OBJ_DIR), $(SRC_FILES:.c=.o))
 
