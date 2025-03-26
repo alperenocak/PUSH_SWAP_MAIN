@@ -6,7 +6,7 @@
 /*   By: yuocak <yuocak@student.42kocaeli.com.tr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 17:35:49 by yuocak            #+#    #+#             */
-/*   Updated: 2025/03/25 15:37:50 by yuocak           ###   ########.fr       */
+/*   Updated: 2025/03/26 17:16:14 by yuocak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,9 @@ int	ft_control_args(char *av)
 	{
 		while (ft_isspace(av[i]))
 			i++;
+		if ((av[i] == '-' || av[i] == '+') && (av[i + 1] <= '0'
+				|| av[i + 1] >= '9'))
+			return (0);
 		if (!ft_is_valid_sign(av, &i))
 			return (0);
 		if (!ft_check_digits(av, &i))

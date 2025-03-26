@@ -6,7 +6,7 @@
 /*   By: yuocak <yuocak@student.42kocaeli.com.tr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 17:35:20 by yuocak            #+#    #+#             */
-/*   Updated: 2025/03/25 15:31:47 by yuocak           ###   ########.fr       */
+/*   Updated: 2025/03/26 17:29:14 by yuocak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
+
+# define LONG_MAX 9223372036854775807
+# define LONG_MIN (-9223372036854775807L - 1)
 
 # include <stdlib.h>
 # include <unistd.h>

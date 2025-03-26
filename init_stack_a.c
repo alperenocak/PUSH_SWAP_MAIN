@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_stack_a.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuocak <yuocak@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: yuocak <yuocak@student.42kocaeli.com.tr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 17:49:31 by yuocak            #+#    #+#             */
-/*   Updated: 2025/03/23 17:23:04 by yuocak           ###   ########.fr       */
+/*   Updated: 2025/03/26 17:25:56 by yuocak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ void	set_target_stack_a(t_list *stack_a, t_list *stack_b, int a, int b)
 {
 	t_list	*current_b;
 	t_list	*target_node;
-	int		best_match_index;
+	long	best_match_index;
 
 	while (a-- != 0)
 	{
 		b = lst_len(stack_b);
-		best_match_index = INT_MIN;
+		best_match_index = LONG_MIN;
 		current_b = stack_b;
 		while (b-- != 0)
 		{
@@ -58,7 +58,7 @@ void	set_target_stack_a(t_list *stack_a, t_list *stack_b, int a, int b)
 			}
 			current_b = current_b->next;
 		}
-		if (best_match_index == INT_MIN)
+		if (best_match_index == LONG_MIN)
 			stack_a->target_node = find_max(stack_b);
 		else
 			stack_a->target_node = target_node;
