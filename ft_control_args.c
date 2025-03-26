@@ -6,7 +6,7 @@
 /*   By: yuocak <yuocak@student.42kocaeli.com.tr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 17:35:49 by yuocak            #+#    #+#             */
-/*   Updated: 2025/03/26 17:16:14 by yuocak           ###   ########.fr       */
+/*   Updated: 2025/03/26 17:47:51 by yuocak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,13 @@ static int	ft_check_digits(char *str, int *i)
 	return (digit_count <= 10);
 }
 
-int	ft_control_args(char *av)
+int	ft_control_args(char *av, int f)
 {
 	int	i;
 
 	i = 0;
+	while (ft_isspace(av[i++]) == '\0' && f == 1)
+		write (2, "Error\n", 6);
 	while (ft_isspace(av[i]))
 		i++;
 	if (av[i] == '\0' || ((av[i] > '9' || av[i] < '0')
@@ -71,7 +73,7 @@ int	ft_control_args(char *av)
 	return (1);
 }
 
-void	ft_control(char **av, int k)
+void	ft_control(char **av, int k, int f)
 {
 	int	i;
 
@@ -85,7 +87,7 @@ void	ft_control(char **av, int k)
 	i = 0;
 	while (av[i])
 	{
-		if (!ft_control_args(av[i]))
+		if (!ft_control_args(av[i], f))
 		{
 			write(2, "Error\n", 6);
 			exit(0);

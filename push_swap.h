@@ -6,7 +6,7 @@
 /*   By: yuocak <yuocak@student.42kocaeli.com.tr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 17:35:20 by yuocak            #+#    #+#             */
-/*   Updated: 2025/03/26 17:29:14 by yuocak           ###   ########.fr       */
+/*   Updated: 2025/03/26 17:46:19 by yuocak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void				ft_sort(t_list **stack_a, t_list **stack_b, char **tmp,
 						int split_control);
 void				sort_three_args(t_list **stack_a);
 void				to_many_args(t_list **stack_a, t_list **stack_b);
-void				ft_control(char **av, int k);
+void				ft_control(char **av, int k, int f);
 void				ft_exit_sorted(t_list *head, char **tmp, int split_control);
 void				two_more_args(char *str);
 int					digit_count_control(char *av);
